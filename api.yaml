@@ -1,0 +1,82 @@
+swagger: "2.0"
+info:
+  title: Kumaravel
+  description:  API
+  version: 1.0.1
+  basePath: '/login/vel/docs'
+  contact:
+    email: kumar@gmail.com
+    name: kumaravel
+  servers:
+    -url: "http://localhost:3001"
+    description: This is Development Server
+ 
+schemes: [http, https]
+ 
+paths:
+  /login/add-user:
+    post:
+      tags:
+      - General
+      summary: Request Docusign API Call
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+      - in: body
+        name: NewUser
+        schema:
+          type: object
+          properties:
+            companyName:
+              type: string
+              example: "Yuvaraj"
+            panNo:
+               type: string
+               example: "AACCC5678H"
+            email:
+               type: string
+               example: "yars@yuviony.com"
+            phoneNumber:
+                type: Number
+            firstName:
+                type: string
+            lastName:
+                type: string
+            address1:
+                type: string
+            city:
+                type: string
+            state:
+                type: string
+            country:
+                type: string
+            
+           
+                
+    
+              
+      responses:
+        200:
+          description: Success
+ 
+# Get Signed Docs based on request id
+  /onesify/docusign/api/v1/view/signed-file/{reqId}:
+    get:
+        tags:
+        - General
+        summary: Get Signed Documents Based on request ID
+        produces:
+          - application/json
+        consumes:
+          - application/json
+        parameters:
+        - in: path
+          name: reqId
+          required: true
+          schema:
+            type: ObjectId
+        responses:
+          200:
+            description: Success
